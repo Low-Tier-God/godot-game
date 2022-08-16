@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/tileset.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/SwingingTrap.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/SpikeTrap.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/DoorAndButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/SpinningBlade.tscn" type="PackedScene" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -189,6 +190,15 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 [node name="World" type="Node2D"]
 position = Vector2( 554, 404 )
 
+[node name="SpinningBlade" parent="." instance=ExtResource( 7 )]
+position = Vector2( 176, 80 )
+
+[node name="CollisionShape2D" parent="SpinningBlade/Path2D/PathFollow2D/Sprite/Area2D" index="0"]
+position = Vector2( -1, 0 )
+
+[node name="SwingingTrap" parent="." instance=ExtResource( 4 )]
+position = Vector2( 264, -33 )
+
 [node name="Player" parent="." groups=["Player"] instance=ExtResource( 1 )]
 position = Vector2( -154, -8 )
 
@@ -201,9 +211,6 @@ tile_data = PoolIntArray( -327692, 0, 0, -327691, 0, 131076, -327690, 0, 1, -327
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 script = ExtResource( 3 )
-
-[node name="SwingingTrap" parent="." instance=ExtResource( 4 )]
-position = Vector2( 264, -33 )
 
 [node name="Area2D" parent="." instance=ExtResource( 5 )]
 position = Vector2( 264, 25 )
@@ -242,7 +249,7 @@ position = Vector2( 215, 8 )
 rotation = -1.5708
 
 [node name="SwingingTrap2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 105, -64 )
+position = Vector2( 104, -65 )
 
 [node name="DoorAndButton" parent="." instance=ExtResource( 6 )]
 position = Vector2( 337, 168 )
@@ -255,4 +262,5 @@ scale = Vector2( 1.96875, 1.625 )
 position = Vector2( -7.92501, 7.99996 )
 scale = Vector2( 0.865624, 0.708332 )
 
+[editable path="SpinningBlade"]
 [editable path="DoorAndButton"]

@@ -37,7 +37,7 @@ tracks/0/keys = {
 
 [sub_resource type="Curve2D" id=3]
 _data = {
-"points": PoolVector2Array(  )
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 176, 0, 0, 0, 0, 0, 176, -32, 0, 0, 0, 0, 160, -32, 0, 0, 0, 0, 160, -48, 0, 0, 0, 0, 144, -48, 0, 0, 0, 0, 144, -64, 0, 0, 0, 0, 112, -64, 0, 0, 0, 0, 112, -48, 0, 0, 0, 0, 64, -48, 0, 0, 0, 0, 64, -64, 0, 0, 0, 0, 32, -64, 0, 0, 0, 0, 32, -80, 0, 0, 0, 0, -16, -80, 0, 0, 0, 0, -16, -32, 0, 0, 0, 0, 0, -32, 0, 0, 0, 0, 0, 0 )
 }
 
 [sub_resource type="CircleShape2D" id=4]
@@ -47,7 +47,7 @@ radius = 17.0
 script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-playback_speed = 4.0
+playback_speed = 11.0
 anims/RESET = SubResource( 1 )
 anims/spin = SubResource( 2 )
 
@@ -55,6 +55,7 @@ anims/spin = SubResource( 2 )
 curve = SubResource( 3 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 1, 0 )
 
 [node name="Sprite" type="Sprite" parent="Path2D/PathFollow2D"]
 texture = ExtResource( 1 )
