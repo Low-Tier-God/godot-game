@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/tileset.png" type="Texture" id=2]
@@ -6,18 +6,69 @@
 [ext_resource path="res://Scenes/SwingingTrap.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/SpikeTrap.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/DoorAndButton.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/SpinningBlade.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/SpinningBlade.gd" type="Script" id=7]
+[ext_resource path="res://Sprites/On (38x38).png" type="Texture" id=8]
 
-[sub_resource type="ConvexPolygonShape2D" id=2]
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Path2D/PathFollow2D/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "spin"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Path2D/PathFollow2D/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+
+[sub_resource type="Curve2D" id=24]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 1, 0, 0, 0, 0, 32, 17, 0, 0, 0, 0, 64, 17, 0, 0, 0, 0, 64, 33, 0, 0, 0, 0, 80, 33, 0, 0, 0, 0, 80, 49, 0, 0, 0, 0, 96, 49, 0, 0, 0, 0, 96, 65, 0, 0, 0, 0, 160, 65, 0, 0, 0, 0, 160, 49, 0, 0, 0, 0, 128, 49, 0, 0, 0, 0, 128, 17, 0, 0, 0, 0, 144, 17, 0, 0, 0, 0, 144, 1, 0, 0, 0, 0, 160, 1, 0, 0, 0, 0, 160, -15, 0, 0, 0, 0, 192, -15, 0, 0, 0, 0, 192, 1, 0, 0, 0, 0, 240, 1, 0, 0, 0, 0, 240, -15, 0, 0, 0, 0, 272, -15, 0, 0, 0, 0, 272, 17, 0, 0, 0, 0, 304, 17, 0, 0, 0, 0, 304, 33, 0, 0, 0, 0, 320, 33, 0, 0, 0, 0, 320, 49, 0, 0, 0, 0, 336, 49, 0, 0, 0, 0, 336, 65 )
+}
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 17.0
+
+[sub_resource type="Curve2D" id=20]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1, 4, 0, 0, 0, 0, 1, -12, 0, 0, 0, 0, -15, -12, 0, 0, 0, 0, -15, -28, 0, 0, 0, 0, -31, -28, 0, 0, 0, 0, -31, -44, 0, 0, 0, 0, -63, -44, 0, 0, 0, 0, -63, -76, 0, 0, 0, 0, -95, -76, 0, 0, 0, 0, -95, -60, 0, 0, 0, 0, -143, -60, 0, 0, 0, 0, -143, -76, 0, 0, 0, 0, -175, -76, 0, 0, 0, 0, -175, -60, 0, 0, 0, 0, -191, -60, 0, 0, 0, 0, -191, -44, 0, 0, 0, 0, -207, -44, 0, 0, 0, 0, -207, -12, 0, 0, 0, 0, -175, -12, 0, 0, 0, 0, -175, 4, 0, 0, 0, 0, -239, 4, 0, 0, 0, 0, -239, -12, 0, 0, 0, 0, -255, -12, 0, 0, 0, 0, -255, -28, 0, 0, 0, 0, -271, -28, 0, 0, 0, 0, -271, -44, 0, 0, 0, 0, -303, -44, 0, 0, 0, 0, -303, -60, 0, 0, 0, 0, -335, -60 )
+}
+
+[sub_resource type="Curve2D" id=5]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 176, 0, 0, 0, 0, 0, 176, -32, 0, 0, 0, 0, 160, -32, 0, 0, 0, 0, 160, -48, 0, 0, 0, 0, 144, -48, 0, 0, 0, 0, 144, -64, 0, 0, 0, 0, 112, -64, 0, 0, 0, 0, 112, -48, 0, 0, 0, 0, 64, -48, 0, 0, 0, 0, 64, -64, 0, 0, 0, 0, 32, -64, 0, 0, 0, 0, 32, -80, 0, 0, 0, 0, -16, -80, 0, 0, 0, 0, -16, -32, 0, 0, 0, 0, 0, -32, 0, 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="ConvexPolygonShape2D" id=21]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
 [sub_resource type="ConvexPolygonShape2D" id=3]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
-[sub_resource type="ConvexPolygonShape2D" id=4]
+[sub_resource type="ConvexPolygonShape2D" id=22]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
-[sub_resource type="ConvexPolygonShape2D" id=5]
+[sub_resource type="ConvexPolygonShape2D" id=23]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
 [sub_resource type="ConvexPolygonShape2D" id=6]
@@ -79,14 +130,14 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 0/navigation_offset = Vector2( 0, 0 )
 0/shape_offset = Vector2( 0, 0 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 2 )
+0/shape = SubResource( 21 )
 0/shape_one_way = false
 0/shape_one_way_margin = 1.0
 0/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 2 ),
+"shape": SubResource( 21 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 0, 1 ),
@@ -98,13 +149,13 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 "autotile_coord": Vector2( 0, 2 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 4 ),
+"shape": SubResource( 22 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 1, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 5 ),
+"shape": SubResource( 23 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 1, 1 ),
@@ -190,11 +241,75 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 [node name="World" type="Node2D"]
 position = Vector2( 554, 404 )
 
-[node name="SpinningBlade" parent="." instance=ExtResource( 7 )]
-position = Vector2( 176, 80 )
+[node name="SpinningBlade3" type="Node2D" parent="."]
+position = Vector2( -144, 127 )
+script = ExtResource( 7 )
 
-[node name="CollisionShape2D" parent="SpinningBlade/Path2D/PathFollow2D/Sprite/Area2D" index="0"]
-position = Vector2( -1, 0 )
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SpinningBlade3"]
+playback_speed = 11.0
+anims/RESET = SubResource( 1 )
+anims/spin = SubResource( 2 )
+
+[node name="Path2D" type="Path2D" parent="SpinningBlade3"]
+curve = SubResource( 24 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="SpinningBlade3/Path2D"]
+
+[node name="Sprite" type="Sprite" parent="SpinningBlade3/Path2D/PathFollow2D"]
+texture = ExtResource( 8 )
+hframes = 8
+
+[node name="Area2D" type="Area2D" parent="SpinningBlade3/Path2D/PathFollow2D/Sprite"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpinningBlade3/Path2D/PathFollow2D/Sprite/Area2D"]
+shape = SubResource( 4 )
+
+[node name="SpinningBlade2" type="Node2D" parent="."]
+position = Vector2( 191, 188 )
+script = ExtResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SpinningBlade2"]
+playback_speed = 11.0
+anims/RESET = SubResource( 1 )
+anims/spin = SubResource( 2 )
+
+[node name="Path2D" type="Path2D" parent="SpinningBlade2"]
+curve = SubResource( 20 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="SpinningBlade2/Path2D"]
+
+[node name="Sprite" type="Sprite" parent="SpinningBlade2/Path2D/PathFollow2D"]
+position = Vector2( 1, 4 )
+texture = ExtResource( 8 )
+hframes = 8
+
+[node name="Area2D" type="Area2D" parent="SpinningBlade2/Path2D/PathFollow2D/Sprite"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpinningBlade2/Path2D/PathFollow2D/Sprite/Area2D"]
+shape = SubResource( 4 )
+
+[node name="SpinningBlade" type="Node2D" parent="."]
+position = Vector2( 176, 80 )
+script = ExtResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SpinningBlade"]
+playback_speed = 11.0
+anims/RESET = SubResource( 1 )
+anims/spin = SubResource( 2 )
+
+[node name="Path2D" type="Path2D" parent="SpinningBlade"]
+curve = SubResource( 5 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="SpinningBlade/Path2D"]
+
+[node name="Sprite" type="Sprite" parent="SpinningBlade/Path2D/PathFollow2D"]
+texture = ExtResource( 8 )
+hframes = 8
+
+[node name="Area2D" type="Area2D" parent="SpinningBlade/Path2D/PathFollow2D/Sprite"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpinningBlade/Path2D/PathFollow2D/Sprite/Area2D"]
+shape = SubResource( 4 )
 
 [node name="SwingingTrap" parent="." instance=ExtResource( 4 )]
 position = Vector2( 264, -33 )
@@ -255,12 +370,11 @@ position = Vector2( 104, -65 )
 position = Vector2( 337, 168 )
 
 [node name="Button" parent="DoorAndButton" index="0"]
-position = Vector2( -464.75, -42.75 )
-scale = Vector2( 1.96875, 1.625 )
+position = Vector2( -465.75, -42.75 )
+scale = Vector2( 1.84375, 1.625 )
 
 [node name="Door" parent="DoorAndButton" index="1"]
 position = Vector2( -7.92501, 7.99996 )
 scale = Vector2( 0.865624, 0.708332 )
 
-[editable path="SpinningBlade"]
 [editable path="DoorAndButton"]

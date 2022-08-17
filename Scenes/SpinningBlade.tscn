@@ -31,13 +31,13 @@ tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
+"update": 0,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 
-[sub_resource type="Curve2D" id=3]
+[sub_resource type="Curve2D" id=5]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 176, 0, 0, 0, 0, 0, 176, -32, 0, 0, 0, 0, 160, -32, 0, 0, 0, 0, 160, -48, 0, 0, 0, 0, 144, -48, 0, 0, 0, 0, 144, -64, 0, 0, 0, 0, 112, -64, 0, 0, 0, 0, 112, -48, 0, 0, 0, 0, 64, -48, 0, 0, 0, 0, 64, -64, 0, 0, 0, 0, 32, -64, 0, 0, 0, 0, 32, -80, 0, 0, 0, 0, -16, -80, 0, 0, 0, 0, -16, -32, 0, 0, 0, 0, 0, -32, 0, 0, 0, 0, 0, 0 )
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 176, 0, 0, 0, 0, 0, 176, -32, 0, 0, 0, 0, 160, -32, 0, 0, 0, 0, 160, -48, 0, 0, 0, 0, 144, -48, 0, 0, 0, 0, 144, -64, 0, 0, 0, 0, 112, -64, 0, 0, 0, 0, 112, -48, 0, 0, 0, 0, 64, -48, 0, 0, 0, 0, 64, -64, 0, 0, 0, 0, 32, -64, 0, 0, 0, 0, 32, -80, 0, 0, 0, 0, -16, -80, 0, 0, 0, 0, -16, -32, 0, 0, 0, 0, 0, -32, 0, 0, 0, 0, 0, 0 )
 }
 
 [sub_resource type="CircleShape2D" id=4]
@@ -52,10 +52,9 @@ anims/RESET = SubResource( 1 )
 anims/spin = SubResource( 2 )
 
 [node name="Path2D" type="Path2D" parent="."]
-curve = SubResource( 3 )
+curve = SubResource( 5 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2( 1, 0 )
 
 [node name="Sprite" type="Sprite" parent="Path2D/PathFollow2D"]
 texture = ExtResource( 1 )
