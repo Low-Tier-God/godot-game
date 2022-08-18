@@ -254,6 +254,7 @@ anims/spin = SubResource( 2 )
 curve = SubResource( 24 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="SpinningBlade3/Path2D"]
+rotation = 0.0312398
 
 [node name="Sprite" type="Sprite" parent="SpinningBlade3/Path2D/PathFollow2D"]
 texture = ExtResource( 8 )
@@ -277,6 +278,8 @@ anims/spin = SubResource( 2 )
 curve = SubResource( 20 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="SpinningBlade2/Path2D"]
+position = Vector2( 1, 4 )
+rotation = -1.5708
 
 [node name="Sprite" type="Sprite" parent="SpinningBlade2/Path2D/PathFollow2D"]
 position = Vector2( 1, 4 )

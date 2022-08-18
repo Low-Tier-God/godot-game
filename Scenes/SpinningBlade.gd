@@ -6,3 +6,6 @@ func _ready():
 	
 func _process(delta):
 	$Path2D/PathFollow2D.offset += follow_speed * delta
+	
+	
+ 
