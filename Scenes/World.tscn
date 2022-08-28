@@ -390,10 +390,10 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="Label" type="Label" parent="CanvasLayer/Control"]
-margin_left = 1046.0
-margin_top = 129.0
-margin_right = 1086.0
-margin_bottom = 143.0
+margin_left = 1002.0
+margin_top = 73.0
+margin_right = 1195.0
+margin_bottom = 206.0
 text = "Testing"
 
 [editable path="DoorAndButton"]
