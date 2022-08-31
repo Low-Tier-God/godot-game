@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/SwingingTrap.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/trap_suspended_anim_strip_18.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -46,13 +45,4 @@ polygon = PoolVector2Array( 7, 16, 7, 15, -7, 15, -7, 16, -8, 16, -8, 17, -10, 1
 anims/RESET = SubResource( 1 )
 anims/Swinging = SubResource( 2 )
 
-[node name="TrapSuspendedAnimStrip18" type="Sprite" parent="."]
-position = Vector2( 0, 16 )
-hframes = 18
-
-[node name="TrapSuspendedAnimStrip19" type="Sprite" parent="."]
-position = Vector2( 0, 16 )
-texture = ExtResource( 2 )
-hframes = 18
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
