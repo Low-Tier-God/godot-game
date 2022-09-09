@@ -122,17 +122,11 @@ tracks/0/keys = {
 }
 
 [sub_resource type="CapsuleShape2D" id=10]
-radius = 3.74403
+radius = 4.02843
 height = 5.93178
 
-[node name="Player" type="KinematicBody2D" groups=["Deadly", "Player"]]
+[node name="Player" type="KinematicBody2D"]
 script = ExtResource( 3 )
-
-[node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 2 )
-hframes = 8
-vframes = 15
-frame = 40
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 3 )
@@ -144,10 +138,16 @@ anims/pushing = SubResource( 8 )
 anims/roll = SubResource( 9 )
 anims/running = SubResource( 4 )
 
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+hframes = 8
+vframes = 15
+frame = 40
+
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( 3, -6, -2, -6, -3, -6, -4, -5, -5, -4, -5, 5, -5, 7, -4, 8, 3, 8, 4, 7, 4, 4, 4, 3, 4, 2, 4, 1, 4, 0, 4, -1, 4, -2, 4, -3, 4, -3.99996, 4, -5 )
 
-[node name="DeathZone" type="Area2D" parent="."]
+[node name="DeathZone" type="Area2D" parent="." groups=["Deadly"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
 position = Vector2( -0.511845, 1.03937 )
