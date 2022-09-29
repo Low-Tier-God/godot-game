@@ -249,6 +249,10 @@ position = Vector2( 195, 192 )
 [node name="Path2D" parent="SpinningBlade2" index="1"]
 curve = SubResource( 26 )
 
+[node name="PathFollow2D" parent="SpinningBlade2/Path2D" index="0"]
+position = Vector2( -3, 0 )
+rotation = -1.5708
+
 [node name="Sprite" parent="SpinningBlade2/Path2D/PathFollow2D" index="0"]
 position = Vector2( -2.87653, 0.851929 )
 
