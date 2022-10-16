@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/tileset.png" type="Texture" id=2]
@@ -11,6 +11,10 @@
 [ext_resource path="res://Scenes/World.gd" type="Script" id=9]
 [ext_resource path="res://Fonts/PressStart2P-Regular.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://Checkpoint.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/DoornButton.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/platform_metroidvania asset pack v1.01/platform_metroidvania asset pack v1.01/miscellaneous sprites/flowers_props.png" type="Texture" id=13]
+[ext_resource path="res://Scenes/platform_metroidvania asset pack v1.01/platform_metroidvania asset pack v1.01/miscellaneous sprites/grass_props.png" type="Texture" id=14]
+[ext_resource path="res://Scenes/platform_metroidvania asset pack v1.01/platform_metroidvania asset pack v1.01/miscellaneous sprites/drygrass_props.png" type="Texture" id=15]
 
 [sub_resource type="Curve2D" id=26]
 _data = {
@@ -351,4 +355,68 @@ position = Vector2( 275, 119 )
 [node name="Player" parent="." groups=["Deadly", "Player"] instance=ExtResource( 1 )]
 position = Vector2( -154, -8 )
 
+[node name="Node2D" parent="." instance=ExtResource( 12 )]
+position = Vector2( 367, 191 )
+
+[node name="Button" parent="Node2D" index="0"]
+position = Vector2( -510, -78 )
+rotation = 1.5708
+
+[node name="FlowersProps" type="Sprite" parent="."]
+position = Vector2( 61, 189 )
+texture = ExtResource( 13 )
+
+[node name="GrassProps" type="Sprite" parent="."]
+position = Vector2( 95, 189 )
+texture = ExtResource( 14 )
+
+[node name="GrassProps2" type="Sprite" parent="."]
+position = Vector2( 60, 125 )
+texture = ExtResource( 14 )
+
+[node name="FlowersProps2" type="Sprite" parent="."]
+position = Vector2( 106, 109 )
+texture = ExtResource( 13 )
+
+[node name="GrassProps3" type="Sprite" parent="."]
+position = Vector2( 236, 189 )
+texture = ExtResource( 14 )
+
+[node name="FlowersProps3" type="Sprite" parent="."]
+position = Vector2( 242, 125 )
+texture = ExtResource( 13 )
+
+[node name="DrygrassProps" type="Sprite" parent="."]
+position = Vector2( 288, 125 )
+texture = ExtResource( 15 )
+
+[node name="GrassProps4" type="Sprite" parent="."]
+position = Vector2( 183, -3 )
+texture = ExtResource( 14 )
+
+[node name="GrassProps5" type="Sprite" parent="."]
+position = Vector2( 31, -19 )
+texture = ExtResource( 14 )
+
+[node name="GrassProps6" type="Sprite" parent="."]
+position = Vector2( 221, 13 )
+texture = ExtResource( 14 )
+
+[node name="GrassProps7" type="Sprite" parent="."]
+position = Vector2( -35, 189 )
+texture = ExtResource( 14 )
+
+[node name="DrygrassProps2" type="Sprite" parent="."]
+position = Vector2( -125, 189 )
+texture = ExtResource( 15 )
+
+[node name="GrassProps8" type="Sprite" parent="."]
+position = Vector2( -152, 93 )
+texture = ExtResource( 14 )
+
+[node name="GrassProps9" type="Sprite" parent="."]
+position = Vector2( -71, 45 )
+texture = ExtResource( 14 )
+
 [editable path="SpinningBlade2"]
+[editable path="Node2D"]

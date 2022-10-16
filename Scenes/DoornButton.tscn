@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Sprites/strange_door_closed_anim_strip_10.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/buttom.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/buttom_pressed.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/strange_door_opening_anim_strip_14.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/DoornButton.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 1 )
@@ -195,7 +196,6 @@ tracks/5/keys = {
 [sub_resource type="Animation" id=6]
 resource_name = "DoorOpen"
 length = 1.4
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Door:texture")
 tracks/0/interp = 1
@@ -309,6 +309,7 @@ tracks/3/keys = {
 }
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource( 5 )
 
 [node name="Button" type="Sprite" parent="."]
 position = Vector2( -7, 0 )
@@ -329,8 +330,8 @@ shape = SubResource( 8 )
 
 [node name="Door" type="Sprite" parent="."]
 position = Vector2( 7, -22 )
-texture = ExtResource( 4 )
-hframes = 14
+texture = ExtResource( 1 )
+hframes = 10
 
 [node name="Door" type="StaticBody2D" parent="Door"]
 position = Vector2( -7, 22 )
@@ -338,7 +339,6 @@ position = Vector2( -7, 22 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door/Door"]
 position = Vector2( 8.5, -22 )
 shape = SubResource( 2 )
-disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/ButtonDown = SubResource( 3 )
@@ -346,3 +346,5 @@ anims/ButtonUp = SubResource( 4 )
 anims/DoorClosed = SubResource( 5 )
 anims/DoorOpen = SubResource( 6 )
 anims/RESET = SubResource( 7 )
+
+[connection signal="body_entered" from="Button/Area2D" to="." method="_on_Area2D_body_entered"]
