@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/tileset.png" type="Texture" id=2]
@@ -15,6 +15,9 @@
 [ext_resource path="res://Scenes/platform_metroidvania asset pack v1.01/platform_metroidvania asset pack v1.01/miscellaneous sprites/flowers_props.png" type="Texture" id=13]
 [ext_resource path="res://Scenes/platform_metroidvania asset pack v1.01/platform_metroidvania asset pack v1.01/miscellaneous sprites/grass_props.png" type="Texture" id=14]
 [ext_resource path="res://Scenes/platform_metroidvania asset pack v1.01/platform_metroidvania asset pack v1.01/miscellaneous sprites/drygrass_props.png" type="Texture" id=15]
+[ext_resource path="res://Background/background_0.png" type="Texture" id=16]
+[ext_resource path="res://Background/background_1.png" type="Texture" id=17]
+[ext_resource path="res://Background/background_2.png" type="Texture" id=18]
 
 [sub_resource type="Curve2D" id=26]
 _data = {
@@ -417,6 +420,24 @@ texture = ExtResource( 14 )
 [node name="GrassProps9" type="Sprite" parent="."]
 position = Vector2( -71, 45 )
 texture = ExtResource( 14 )
+
+[node name="Background0" type="Sprite" parent="."]
+position = Vector2( 0.624969, -1.75 )
+scale = Vector2( 4.46094, 4.04167 )
+z_index = -10
+texture = ExtResource( 16 )
+
+[node name="Background1" type="Sprite" parent="."]
+position = Vector2( -1.00003, -26.25 )
+scale = Vector2( 4.44965, 4.31944 )
+z_index = -9
+texture = ExtResource( 17 )
+
+[node name="Background2" type="Sprite" parent="."]
+position = Vector2( -1.99997, 93 )
+scale = Vector2( 4.44444, 2.97778 )
+z_index = -8
+texture = ExtResource( 18 )
 
 [editable path="SpinningBlade2"]
 [editable path="Node2D"]
