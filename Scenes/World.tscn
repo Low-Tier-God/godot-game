@@ -350,7 +350,7 @@ margin_top = 54.0
 margin_right = 1183.0
 margin_bottom = 70.0
 custom_fonts/font = SubResource( 25 )
-text = "Testing"
+text = "00:00:00"
 
 [node name="SavePoint" parent="." instance=ExtResource( 11 )]
 position = Vector2( 275, 119 )
@@ -434,8 +434,8 @@ z_index = -9
 texture = ExtResource( 17 )
 
 [node name="Background2" type="Sprite" parent="."]
-position = Vector2( -1.99997, 93 )
-scale = Vector2( 4.44444, 2.97778 )
+position = Vector2( 1.34311e-05, 38.5 )
+scale = Vector2( 4.45833, 3.60556 )
 z_index = -8
 texture = ExtResource( 18 )
 
