@@ -357,7 +357,7 @@ text = "00:00:00"
 position = Vector2( 275, 119 )
 
 [node name="Player" parent="." groups=["Deadly", "Player"] instance=ExtResource( 1 )]
-position = Vector2( 500, 147 )
+position = Vector2( -154, -8 )
 
 [node name="Node2D" parent="." instance=ExtResource( 12 )]
 position = Vector2( 367, 191 )
@@ -419,20 +419,20 @@ position = Vector2( -152, 93 )
 texture = ExtResource( 14 )
 
 [node name="Background0" type="Sprite" parent="."]
-position = Vector2( 122.625, -717.5 )
-scale = Vector2( 15, 15 )
+position = Vector2( -1.37502, -56.5 )
+scale = Vector2( 5, 5 )
 z_index = -10
 texture = ExtResource( 16 )
 
 [node name="Background1" type="Sprite" parent="."]
-position = Vector2( 121, -742 )
-scale = Vector2( 15, 15 )
+position = Vector2( -3, -81 )
+scale = Vector2( 5, 5 )
 z_index = -9
 texture = ExtResource( 17 )
 
 [node name="Background2" type="Sprite" parent="."]
-position = Vector2( 122, -677.25 )
-scale = Vector2( 15, 15 )
+position = Vector2( -2.00002, -16.25 )
+scale = Vector2( 5, 5 )
 z_index = -8
 texture = ExtResource( 18 )
 
